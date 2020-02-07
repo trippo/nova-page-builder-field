@@ -19,7 +19,7 @@ php artisan vendor:publish --provider="DigitalCloud\PageBuilderField\FieldServic
 ## Usage
 
 ```php
-use use DigitalCloud\PageBuilderField\PageBuilderField;
+use DigitalCloud\PageBuilderField\PageBuilderField;
 // ....
 
 PageBuilderField::make('page'),
