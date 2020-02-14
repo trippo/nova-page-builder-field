@@ -75,35 +75,35 @@
                 ],
                 canvas: {
                     styles: [
-                    'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
+                        'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
                     ],
                     scripts: [
-                    'https://code.jquery.com/jquery-3.4.1.slim.min.js',
-                    'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js',
-                    'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'
+                        'https://code.jquery.com/jquery-3.4.1.slim.min.js',
+                        'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js',
+                        'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'
                     ],
                 },
-                styleManager : {
-                    sectors: [
-                        {
-                            name: 'General',
-                            open: false,
-                            buildProps: ['float', 'display', 'position', 'top', 'right', 'left', 'bottom']
-                        },{
-                            name: 'Dimension',
-                            open: false,
-                            buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding'],
-                        },{
-                            name: 'Typography',
-                            open: false,
-                            buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-shadow'],
-                        },{
-                            name: 'Decorations',
-                            open: false,
-                            buildProps: ['border-radius-c', 'background-color', 'border-radius', 'border', 'box-shadow', 'background'],
-                        }
-                    ],
-                },
+                // styleManager : {
+                //     sectors: [
+                //         {
+                //             name: 'General',
+                //             open: false,
+                //             buildProps: ['float', 'display', 'position', 'top', 'right', 'left', 'bottom']
+                //         },{
+                //             name: 'Dimension',
+                //             open: false,
+                //             buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding'],
+                //         },{
+                //             name: 'Typography',
+                //             open: false,
+                //             buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-shadow'],
+                //         },{
+                //             name: 'Decorations',
+                //             open: false,
+                //             buildProps: ['border-radius-c', 'background-color', 'border-radius', 'border', 'box-shadow', 'background'],
+                //         }
+                //     ],
+                // },
             });
 
             this.editor.setComponents(this.value);
