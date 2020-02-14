@@ -10,6 +10,7 @@
     import pluginCountdown from 'grapesjs-component-countdown';
     import pluginForms from 'grapesjs-plugin-forms';
     import pluginExport from 'grapesjs-plugin-export';
+    import pluginBootstrap from 'grapesjs-blocks-bootstrap4';
     // import pluginAviary from 'grapesjs-aviary';
     // import pluginFilestack from 'grapesjs-plugin-filestack';
     import custom from '../plugins/custom';
@@ -64,6 +65,7 @@
                 plugins: [
                     basicBlocks,
                     // pluginAviary,
+                    pluginBootstrap,
                     pluginExport,
                     pluginCountdown,
                     // pluginFilestack,

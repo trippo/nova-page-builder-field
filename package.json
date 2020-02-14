@@ -18,6 +18,7 @@
         "grapesjs": "0.x",
         "grapesjs-aviary": "^0.1.2",
         "grapesjs-blocks-basic": "^0.1.7",
+        "grapesjs-blocks-bootstrap4": "^0.1.16",
         "grapesjs-component-countdown": "^0.1.2",
         "grapesjs-navbar": "^0.1.5",
         "grapesjs-plugin-export": "^0.1.5",
