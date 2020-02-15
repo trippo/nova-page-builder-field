@@ -114,25 +114,6 @@
             });
             var pn = this.editor.Panels;
       var modal = this.editor.Modal;
-      var cmdm = this.editor.Commands;
-      cmdm.add('canvas-clear', function() {
-        if(confirm('Areeee you sure to clean the canvas?')) {
-          var comps = this.editor.DomComponents.clear();
-          setTimeout(function(){ localStorage.clear()}, 0)
-        }
-      });
-      cmdm.add('set-device-desktop', {
-        run: function(ed) { ed.setDevice('Desktop') },
-        stop: function() {},
-      });
-      cmdm.add('set-device-tablet', {
-        run: function(ed) { ed.setDevice('Tablet') },
-        stop: function() {},
-      });
-      cmdm.add('set-device-mobile', {
-        run: function(ed) { ed.setDevice('Mobile portrait') },
-        stop: function() {},
-      });
 
 
 
