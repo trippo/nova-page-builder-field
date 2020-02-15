@@ -11,8 +11,6 @@
     import pluginCountdown from 'grapesjs-component-countdown';
     //import pluginForms from 'grapesjs-plugin-forms';
     import pluginExport from 'grapesjs-plugin-export';
-    // import pluginAviary from 'grapesjs-aviary';
-    // import pluginFilestack from 'grapesjs-plugin-filestack';
     import custom from '../plugins/custom';
     import { FormField, HandlesValidationErrors } from 'laravel-nova'
 
@@ -65,10 +63,8 @@
                 plugins: [
                     pluginBootstrap,
                     basicBlocks,
-                    // pluginAviary,
                     pluginExport,
                     pluginCountdown,
-                    // pluginFilestack,
                     //pluginForms,
                     pluginNavbar,
                     custom

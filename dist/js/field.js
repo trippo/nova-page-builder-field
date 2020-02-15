@@ -486,8 +486,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 //import pluginForms from 'grapesjs-plugin-forms';
 
-// import pluginAviary from 'grapesjs-aviary';
-// import pluginFilestack from 'grapesjs-plugin-filestack';
 
 
 
@@ -538,10 +536,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             allowScripts: 1,
             storageManager: { autoload: 0 },
             width: '100%',
-            plugins: [__WEBPACK_IMPORTED_MODULE_2_grapesjs_blocks_bootstrap4___default.a, __WEBPACK_IMPORTED_MODULE_1_grapesjs_blocks_basic___default.a,
-            // pluginAviary,
-            __WEBPACK_IMPORTED_MODULE_5_grapesjs_plugin_export___default.a, __WEBPACK_IMPORTED_MODULE_4_grapesjs_component_countdown___default.a,
-            // pluginFilestack,
+            plugins: [__WEBPACK_IMPORTED_MODULE_2_grapesjs_blocks_bootstrap4___default.a, __WEBPACK_IMPORTED_MODULE_1_grapesjs_blocks_basic___default.a, __WEBPACK_IMPORTED_MODULE_5_grapesjs_plugin_export___default.a, __WEBPACK_IMPORTED_MODULE_4_grapesjs_component_countdown___default.a,
             //pluginForms,
             __WEBPACK_IMPORTED_MODULE_3_grapesjs_navbar___default.a, __WEBPACK_IMPORTED_MODULE_6__plugins_custom__["a" /* default */]],
             pluginsOpts: {
