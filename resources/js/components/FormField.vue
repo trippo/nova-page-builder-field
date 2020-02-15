@@ -9,7 +9,7 @@
     import pluginBootstrap from 'grapesjs-blocks-bootstrap4';
     import pluginNavbar from 'grapesjs-navbar';
     import pluginCountdown from 'grapesjs-component-countdown';
-    import pluginForms from 'grapesjs-plugin-forms';
+    //import pluginForms from 'grapesjs-plugin-forms';
     import pluginExport from 'grapesjs-plugin-export';
     // import pluginAviary from 'grapesjs-aviary';
     // import pluginFilestack from 'grapesjs-plugin-filestack';
@@ -69,10 +69,17 @@
                     pluginExport,
                     pluginCountdown,
                     // pluginFilestack,
-                    pluginForms,
+                    //pluginForms,
                     pluginNavbar,
                     custom
                 ],
+                pluginsOpts: {
+                    'grapesjs-blocks-bootstrap4': {
+                        blockCategories: {
+                            forms: false
+                        }
+                    }
+                },
                 canvas: {
                     styles: [
                         'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
@@ -83,27 +90,27 @@
                         'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'
                     ],
                 },
-                // styleManager : {
-                //     sectors: [
-                //         {
-                //             name: 'General',
-                //             open: false,
-                //             buildProps: ['float', 'display', 'position', 'top', 'right', 'left', 'bottom']
-                //         },{
-                //             name: 'Dimension',
-                //             open: false,
-                //             buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding'],
-                //         },{
-                //             name: 'Typography',
-                //             open: false,
-                //             buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-shadow'],
-                //         },{
-                //             name: 'Decorations',
-                //             open: false,
-                //             buildProps: ['border-radius-c', 'background-color', 'border-radius', 'border', 'box-shadow', 'background'],
-                //         }
-                //     ],
-                // },
+                styleManager : {
+                    sectors: [
+                        {
+                            name: 'General',
+                            open: false,
+                            buildProps: ['float', 'display', 'position', 'top', 'right', 'left', 'bottom']
+                        },{
+                            name: 'Dimension',
+                            open: false,
+                            buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding'],
+                        },{
+                            name: 'Typography',
+                            open: false,
+                            buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-shadow'],
+                        },{
+                            name: 'Decorations',
+                            open: false,
+                            buildProps: ['border-radius-c', 'background-color', 'border-radius', 'border', 'box-shadow', 'background'],
+                        }
+                    ],
+                },
             });
 
             this.editor.setComponents(this.value);
