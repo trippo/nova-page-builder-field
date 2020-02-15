@@ -10,6 +10,7 @@
     import pluginCountdown from 'grapesjs-component-countdown';
     import pluginCustomCode from 'grapesjs-custom-code';
     import pluginParserPostcss from 'grapesjs-parser-postcss';
+    import pluginTouch from 'grapesjs-touch';
     //import pluginForms from 'grapesjs-plugin-forms';
     import pluginExport from 'grapesjs-plugin-export';
     import custom from '../plugins/custom';
@@ -69,6 +70,7 @@
                     //pluginForms,
                     pluginCustomCode,
                     pluginParserPostcss,
+                    pluginTouch,
                     custom
                 ],
                 pluginsOpts: {
