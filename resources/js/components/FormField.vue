@@ -9,6 +9,7 @@
     import pluginBootstrap from 'grapesjs-blocks-bootstrap4';
     import pluginCountdown from 'grapesjs-component-countdown';
     import pluginCustomCode from 'grapesjs-custom-code';
+    import pluginParserPostcss from 'grapesjs-parser-postcss';
     //import pluginForms from 'grapesjs-plugin-forms';
     import pluginExport from 'grapesjs-plugin-export';
     import custom from '../plugins/custom';
@@ -67,6 +68,7 @@
                     pluginCountdown,
                     //pluginForms,
                     pluginCustomCode,
+                    pluginParserPostcss,
                     custom
                 ],
                 pluginsOpts: {
