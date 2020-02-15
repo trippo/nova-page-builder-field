@@ -76,8 +76,6 @@
                 ],
                 pluginsOpts: {
                     pluginBootstrap: {
-                        gridDevices: true,
-                        gridDevicesPanel: true,
                         blockCategories: {
                             forms: false
                         }
