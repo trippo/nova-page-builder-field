@@ -11,7 +11,6 @@
     import pluginCustomCode from 'grapesjs-custom-code';
     import pluginParserPostcss from 'grapesjs-parser-postcss';
     import pluginTouch from 'grapesjs-touch';
-    import pluginTooltip from 'grapesjs-tooltip';
     //import pluginForms from 'grapesjs-plugin-forms';
     import pluginExport from 'grapesjs-plugin-export';
     import custom from '../plugins/custom';
@@ -64,6 +63,7 @@
                 storageManager: { autoload: 0 },
                 width: '100%',
                 plugins: [
+                    pluginBootstrap,
                     basicBlocks,
                     pluginExport,
                     pluginCountdown,
@@ -72,10 +72,12 @@
                     pluginParserPostcss,
                     pluginTouch,
                     custom,
-                    pluginBootstrap,
                 ],
                 pluginsOpts: {
                     pluginBootstrap: {
+                        blocks: {
+                            container: false
+                        },
                         blockCategories: {
                             forms: false
                         }
