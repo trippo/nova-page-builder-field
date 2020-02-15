@@ -22,6 +22,7 @@
         "grapesjs-custom-code": "^0.1.2",
         "grapesjs-parser-postcss": "^0.1.1",
         "grapesjs-plugin-export": "^0.1.5",
+        "grapesjs-tooltip": "^0.1.5",
         "grapesjs-touch": "^0.1.1",
         "vue": "^2.5.0"
     }

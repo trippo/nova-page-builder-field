@@ -11,6 +11,7 @@
     import pluginCustomCode from 'grapesjs-custom-code';
     import pluginParserPostcss from 'grapesjs-parser-postcss';
     import pluginTouch from 'grapesjs-touch';
+    import pluginTooltip from 'grapesjs-tooltip';
     //import pluginForms from 'grapesjs-plugin-forms';
     import pluginExport from 'grapesjs-plugin-export';
     import custom from '../plugins/custom';
