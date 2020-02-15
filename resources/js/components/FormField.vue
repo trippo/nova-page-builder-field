@@ -7,8 +7,8 @@
     import grapesjs from 'grapesjs';
     import basicBlocks from 'grapesjs-blocks-basic';
     import pluginBootstrap from 'grapesjs-blocks-bootstrap4';
-    import pluginNavbar from 'grapesjs-navbar';
     import pluginCountdown from 'grapesjs-component-countdown';
+    import pluginCustomCode from 'grapesjs-custom-code';
     //import pluginForms from 'grapesjs-plugin-forms';
     import pluginExport from 'grapesjs-plugin-export';
     import custom from '../plugins/custom';
@@ -66,7 +66,7 @@
                     pluginExport,
                     pluginCountdown,
                     //pluginForms,
-                    pluginNavbar,
+                    pluginCustomCode,
                     custom
                 ],
                 pluginsOpts: {

@@ -16,14 +16,11 @@
     },
     "dependencies": {
         "grapesjs": "0.x",
-        "grapesjs-aviary": "^0.1.2",
         "grapesjs-blocks-basic": "^0.1.7",
         "grapesjs-blocks-bootstrap4": "github:trippo/grapesjs-blocks-bootstrap4",
         "grapesjs-component-countdown": "^0.1.2",
-        "grapesjs-navbar": "^0.1.5",
+        "grapesjs-custom-code": "^0.1.2",
         "grapesjs-plugin-export": "^0.1.5",
-        "grapesjs-plugin-filestack": "^0.1.1",
-        "grapesjs-plugin-forms": "^0.3.5",
         "vue": "^2.5.0"
     }
 }
