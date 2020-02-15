@@ -64,7 +64,6 @@
                 storageManager: { autoload: 0 },
                 width: '100%',
                 plugins: [
-                    pluginBootstrap,
                     basicBlocks,
                     pluginExport,
                     pluginCountdown,
@@ -72,7 +71,8 @@
                     pluginCustomCode,
                     pluginParserPostcss,
                     pluginTouch,
-                    custom
+                    custom,
+                    pluginBootstrap,
                 ],
                 pluginsOpts: {
                     pluginBootstrap: {

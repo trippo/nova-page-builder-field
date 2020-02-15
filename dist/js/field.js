@@ -545,9 +545,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             allowScripts: 1,
             storageManager: { autoload: 0 },
             width: '100%',
-            plugins: [__WEBPACK_IMPORTED_MODULE_2_grapesjs_blocks_bootstrap4___default.a, __WEBPACK_IMPORTED_MODULE_1_grapesjs_blocks_basic___default.a, __WEBPACK_IMPORTED_MODULE_8_grapesjs_plugin_export___default.a, __WEBPACK_IMPORTED_MODULE_3_grapesjs_component_countdown___default.a,
+            plugins: [__WEBPACK_IMPORTED_MODULE_1_grapesjs_blocks_basic___default.a, __WEBPACK_IMPORTED_MODULE_8_grapesjs_plugin_export___default.a, __WEBPACK_IMPORTED_MODULE_3_grapesjs_component_countdown___default.a,
             //pluginForms,
-            __WEBPACK_IMPORTED_MODULE_4_grapesjs_custom_code___default.a, __WEBPACK_IMPORTED_MODULE_5_grapesjs_parser_postcss___default.a, __WEBPACK_IMPORTED_MODULE_6_grapesjs_touch___default.a, __WEBPACK_IMPORTED_MODULE_9__plugins_custom__["a" /* default */]],
+            __WEBPACK_IMPORTED_MODULE_4_grapesjs_custom_code___default.a, __WEBPACK_IMPORTED_MODULE_5_grapesjs_parser_postcss___default.a, __WEBPACK_IMPORTED_MODULE_6_grapesjs_touch___default.a, __WEBPACK_IMPORTED_MODULE_9__plugins_custom__["a" /* default */], __WEBPACK_IMPORTED_MODULE_2_grapesjs_blocks_bootstrap4___default.a],
             pluginsOpts: {
                 pluginBootstrap: {
                     gridDevices: true,
