@@ -154,25 +154,25 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
 
     // Add devices buttons
     var panelDevices = pnm.addPanel({id: 'devices-c'});
-    var deviceBtns = panelDevices.get('buttons');
-    deviceBtns.add([{
-        id: 'deviceDesktop',
-        command: 'set-device-desktop',
-        className: 'fa fa-desktop',
-        attributes: {'title': 'Desktop'},
-        active: 1,
-    }, {
-        id: 'deviceTablet',
-        command: 'set-device-tablet',
-        className: 'fa fa-tablet',
-        attributes: {'title': 'Tablet'},
-    }, {
-        id: 'deviceMobile',
-        command: 'set-device-mobile',
-        className: 'fa fa-mobile',
-        attributes: {'title': 'Mobile'},
-    }]);
-    updateTooltip(deviceBtns);
+    // var deviceBtns = panelDevices.get('buttons');
+    // deviceBtns.add([{
+    //     id: 'deviceDesktop',
+    //     command: 'set-device-desktop',
+    //     className: 'fa fa-desktop',
+    //     attributes: {'title': 'Desktop'},
+    //     active: 1,
+    // }, {
+    //     id: 'deviceTablet',
+    //     command: 'set-device-tablet',
+    //     className: 'fa fa-tablet',
+    //     attributes: {'title': 'Tablet'},
+    // }, {
+    //     id: 'deviceMobile',
+    //     command: 'set-device-mobile',
+    //     className: 'fa fa-mobile',
+    //     attributes: {'title': 'Mobile'},
+    // }]);
+    // updateTooltip(deviceBtns);
     updateTooltip(pnm.getPanel('options').get('buttons'));
 
 
