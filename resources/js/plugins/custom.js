@@ -153,7 +153,7 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
     }]);
 
     // Add devices buttons
-    var panelDevices = pnm.addPanel({id: 'devices-c'});
+    // var panelDevices = pnm.addPanel({id: 'devices-c'});
     // var deviceBtns = panelDevices.get('buttons');
     // deviceBtns.add([{
     //     id: 'deviceDesktop',
