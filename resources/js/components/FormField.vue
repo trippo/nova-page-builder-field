@@ -96,14 +96,14 @@
                 styleManager : {
                     sectors: [
                         {
-                            name: 'General',
-                            open: false,
-                            buildProps: ['float', 'display', 'position', 'top', 'right', 'left', 'bottom']
-                        },{
-                            name: 'Dimension',
-                            open: false,
-                            buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding'],
-                        },{
+                        //     name: 'General',
+                        //     open: false,
+                        //     buildProps: ['float', 'display', 'position', 'top', 'right', 'left', 'bottom']
+                        // },{
+                        //     name: 'Dimension',
+                        //     open: false,
+                        //     buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding'],
+                        // },{
                             name: 'Typography',
                             open: false,
                             buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-shadow'],
