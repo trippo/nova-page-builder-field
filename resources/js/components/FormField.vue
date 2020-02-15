@@ -75,7 +75,7 @@
                     custom
                 ],
                 pluginsOpts: {
-                    'grapesjs-blocks-bootstrap4': {
+                    pluginBootstrap: {
                         gridDevices: true,
                         gridDevicesPanel: true,
                         blockCategories: {

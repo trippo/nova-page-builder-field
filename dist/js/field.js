@@ -549,7 +549,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             //pluginForms,
             __WEBPACK_IMPORTED_MODULE_4_grapesjs_custom_code___default.a, __WEBPACK_IMPORTED_MODULE_5_grapesjs_parser_postcss___default.a, __WEBPACK_IMPORTED_MODULE_6_grapesjs_touch___default.a, __WEBPACK_IMPORTED_MODULE_9__plugins_custom__["a" /* default */]],
             pluginsOpts: {
-                'grapesjs-blocks-bootstrap4': {
+                pluginBootstrap: {
                     gridDevices: true,
                     gridDevicesPanel: true,
                     blockCategories: {
