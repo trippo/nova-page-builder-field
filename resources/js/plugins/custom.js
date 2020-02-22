@@ -139,7 +139,7 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
         attributes: { class: 'fa fa-table' },
         content: `
         <div class="table-responsive">
-            <table class="table table-striped 5stable-bordered table-hover">
+            <table class="table table-striped stable-bordered table-hover">
                 <thead>
                 <tr><th>Title</th><th>Title</th><th>Title</th></tr>
                 </thead>
