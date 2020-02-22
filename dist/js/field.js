@@ -1062,6 +1062,8 @@ process.umask = function() { return 0; };
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_grapesjs__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_grapesjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_grapesjs__);
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_grapesjs___default.a.plugins.add('custom', function (editor, opts) {
@@ -1186,10 +1188,88 @@ process.umask = function() { return 0; };
         content: '<blockquote class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</blockquote>',
         attributes: { class: 'fa fa-quote-right' }
     });
+    bm.remove('container');
+    bm.remove('alert');
     bm.remove('column1');
     bm.remove('column2');
     bm.remove('column3');
     bm.remove('column3-7');
+    bm.add('table-block', {
+        id: 'table',
+        label: 'Table',
+        category: 'Basic',
+        attributes: { class: 'fa fa-table' },
+        content: '\n            <table class="table  table-bordered table-resizable">\n                <tr><td></td><td></td><td></td></tr>\n                <tr><td></td><td></td><td></td></tr>\n                <tr><td></td><td></td><td></td></tr>\n            </table>\n          '
+    });
+    var TOOLBAR_CELL = [{
+        attributes: { class: "fa fa-arrows" },
+        command: "tlb-move"
+    }, {
+        attributes: { class: "fa fa-flag" },
+        command: "table-insert-row-above"
+    }, {
+        attributes: { class: 'fa fa-clone' },
+        command: 'tlb-clone'
+    }, {
+        attributes: { class: 'fa fa-trash-o' },
+        command: 'tlb-delete'
+    }];
+
+    var getCellToolbar = function getCellToolbar() {
+        return TOOLBAR_CELL;
+    };
+    var components = editor.DomComponents;
+    var text = components.getType('text');
+    components.addType('cell', {
+        model: text.model.extend({
+            defaults: Object.assign({}, text.model.prototype.defaults, {
+                type: 'cell',
+                tagName: 'td',
+                draggable: ['tr']
+
+            })
+        }, {
+            isComponent: function isComponent(el) {
+                var result = void 0;
+                var tag = el.tagName;
+                if (tag == 'TD' || tag == 'TH') {
+                    result = {
+                        type: 'cell',
+                        tagName: tag.toLowerCase()
+                    };
+                }
+                return result;
+            }
+        }),
+        view: text.view
+    });
+    editor.on('component:selected', function (m) {
+        var compType = m.get('type');
+        switch (compType) {
+            case 'cell':
+                m.set('toolbar', getCellToolbar()); // set a toolbars
+        }
+    });
+    editor.Commands.add('table-insert-row-above', function (editor) {
+        var selected = editor.getSelected();
+
+        if (selected.is('cell')) {
+            var rowComponent = selected.parent();
+            var rowIndex = rowComponent.collection.indexOf(rowComponent);
+            var cells = rowComponent.components().length;
+            var rowContainer = rowComponent.parent();
+
+            rowContainer.components().add({
+                type: 'row',
+                components: [].concat(_toConsumableArray(Array(cells).keys())).map(function (i) {
+                    return {
+                        type: 'cell',
+                        content: 'New Cell'
+                    };
+                })
+            }, { at: rowIndex });
+        }
+    });
 
     /****************** BUTTONS *************************/
 
@@ -1242,28 +1322,7 @@ process.umask = function() { return 0; };
     /****************** RichTextEditor *************************/
 
     var rte = editor.RichTextEditor;
-    rte.add('span', {
-        icon: 'span',
-        result: function result(rte) {
-            return rte.insertHTML('<span data-gjs-type=\'span\'>' + rte.selection() + '</span>');
-        }
-    });
 
-    rte.add('superscript', {
-        icon: '<i class="fa fa-superscript"></i>',
-        attributes: { title: 'Superscript' },
-        result: function result(rte) {
-            return rte.exec('superscript');
-        }
-    });
-
-    rte.add('subscript', {
-        icon: '<i class="fa fa-subscript"></i>',
-        attributes: { title: 'Subscript' },
-        result: function result(rte) {
-            return rte.exec('subscript');
-        }
-    });
     rte.remove('link');
     rte.add('link', {
         icon: '<i class="fa fa-link"></i>',
@@ -1291,6 +1350,30 @@ process.umask = function() { return 0; };
                     if (url) rte.insertHTML('<a class="link" href="' + url + '">' + rte.selection() + '</a>');
                 }
             }
+        }
+    });
+
+    rte.add('span', {
+        icon: 'span',
+        attributes: { title: 'Span' },
+        result: function result(rte) {
+            return rte.insertHTML('<span data-gjs-type=\'span\'>' + rte.selection() + '</span>');
+        }
+    });
+
+    rte.add('superscript', {
+        icon: '<i class="fa fa-superscript"></i>',
+        attributes: { title: 'Superscript' },
+        result: function result(rte) {
+            return rte.exec('superscript');
+        }
+    });
+
+    rte.add('subscript', {
+        icon: '<i class="fa fa-subscript"></i>',
+        attributes: { title: 'Subscript' },
+        result: function result(rte) {
+            return rte.exec('subscript');
         }
     });
 

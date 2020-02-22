@@ -126,10 +126,98 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
         content: '<blockquote class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</blockquote>',
         attributes: {class: 'fa fa-quote-right'}
     });
+    bm.remove('container');
+    bm.remove('alert');
     bm.remove('column1');
     bm.remove('column2');
     bm.remove('column3');
     bm.remove('column3-7');
+    bm.add('table-block', {
+        id: 'table',
+        label: 'Table',
+        category: 'Basic',
+        attributes: { class: 'fa fa-table' },
+        content: `
+            <table class="table  table-bordered table-resizable">
+                <tr><td></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td></td></tr>
+                <tr><td></td><td></td><td></td></tr>
+            </table>
+          `,
+    });
+    const TOOLBAR_CELL = [
+        {
+          attributes: { class: "fa fa-arrows" },
+          command: "tlb-move"
+        },
+        {
+          attributes: { class: "fa fa-flag" },
+          command: "table-insert-row-above"
+        },
+        
+        {
+          attributes: {class: 'fa fa-clone'},
+          command: 'tlb-clone',
+        },
+        {
+          attributes: {class: 'fa fa-trash-o'},
+          command: 'tlb-delete',
+        }
+    ];
+
+    const getCellToolbar = () => TOOLBAR_CELL;
+    const components = editor.DomComponents;
+    const text = components.getType('text');
+        components.addType('cell', {
+          model: text.model.extend({
+            defaults: Object.assign({}, text.model.prototype.defaults, {
+              type: 'cell',
+              tagName: 'td',
+              draggable: ['tr'],
+              
+            }),
+        },
+
+        {
+            isComponent(el) {
+            let result;
+            const tag = el.tagName;
+            if (tag == 'TD' || tag == 'TH') {
+                result = {
+                type: 'cell',
+                tagName: tag.toLowerCase()
+                };
+            }
+            return result;
+            }
+        }),
+        view: text.view,
+    });
+    editor.on('component:selected', m => {
+        const compType = m.get('type');
+        switch (compType) {
+          case 'cell':
+            m.set('toolbar', getCellToolbar()); // set a toolbars
+        }
+    });
+    editor.Commands.add('table-insert-row-above', editor => {
+        const selected = editor.getSelected();
+
+        if (selected.is('cell')) {
+          const rowComponent = selected.parent();
+          const rowIndex = rowComponent.collection.indexOf(rowComponent);
+          const cells = rowComponent.components().length;
+          const rowContainer = rowComponent.parent();
+
+          rowContainer.components().add({
+            type: 'row',
+            components: [...Array(cells).keys()].map(i => ({
+              type: 'cell',
+              content: 'New Cell',
+            }))
+          }, { at: rowIndex });
+        }
+    });
 
     /****************** BUTTONS *************************/
 
@@ -182,24 +270,7 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
     /****************** RichTextEditor *************************/
 
     const rte = editor.RichTextEditor;
-    rte.add('span', {
-        icon: 'span',
-        result: rte => rte.insertHTML(`<span data-gjs-type='span'>${rte.selection()}</span>`)
-    });
 
-    rte.add('superscript',
-    {
-    icon: '<i class="fa fa-superscript"></i>',
-    attributes: {title: 'Superscript'},
-    result: rte => rte.exec('superscript')
-    });
-
-    rte.add('subscript',
-    {
-    icon: '<i class="fa fa-subscript"></i>',
-    attributes: {title: 'Subscript'},
-    result: rte => rte.exec('subscript')
-    });
     rte.remove('link');
     rte.add('link',
     {
@@ -240,32 +311,53 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
     }
     });
 
+
+    rte.add('span', {
+        icon: 'span',
+        attributes: {title: 'Span'},
+        result: rte => rte.insertHTML(`<span data-gjs-type='span'>${rte.selection()}</span>`)
+    });
+
+    rte.add('superscript',
+    {
+        icon: '<i class="fa fa-superscript"></i>',
+        attributes: {title: 'Superscript'},
+        result: rte => rte.exec('superscript')
+    });
+
+    rte.add('subscript',
+    {
+        icon: '<i class="fa fa-subscript"></i>',
+        attributes: {title: 'Subscript'},
+        result: rte => rte.exec('subscript')
+    });
+
     rte.add('indent',
     {
-    icon: '<i class="fa fa-indent"></i>',
-    attributes: {title: 'Indent'},
-    result: rte => rte.exec('indent')
+        icon: '<i class="fa fa-indent"></i>',
+        attributes: {title: 'Indent'},
+        result: rte => rte.exec('indent')
     });
 
     rte.add('outdent',
     {
-    icon: '<i class="fa fa-outdent"></i>',
-    attributes: {title: 'Outdent'},
-    result: rte => rte.exec('outdent')
+        icon: '<i class="fa fa-outdent"></i>',
+        attributes: {title: 'Outdent'},
+        result: rte => rte.exec('outdent')
     });
 
     rte.add('orderedList',
     {
-    icon: '<i class="fa fa-list-ol"></i>',
-    attributes: {title: 'Ordered List'},
-    result: rte => rte.exec('insertOrderedList')
+        icon: '<i class="fa fa-list-ol"></i>',
+        attributes: {title: 'Ordered List'},
+        result: rte => rte.exec('insertOrderedList')
     });
 
     rte.add('unorderedList',
     {
-    icon: '<i class="fa fa-list-ul"></i>',
-    attributes: {title: 'Unordered List'},
-    result: rte => rte.exec('insertUnorderedList')
+        icon: '<i class="fa fa-list-ul"></i>',
+        attributes: {title: 'Unordered List'},
+        result: rte => rte.exec('insertUnorderedList')
     });
 
 
