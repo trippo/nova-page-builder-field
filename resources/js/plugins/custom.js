@@ -182,7 +182,44 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
         icon: 'Span',
         result: rte => rte.insertHTML(`<span data-gjs-type='span'>${rte.selection()}</span>`)
     });
-
+    rte.add('dropcap',
+{
+    icon: '',
+    attributes: {title: 'Dropcap'},
+    result: rte =>
+    {
+        var component = editor.getSelected();
+        
+        if(component.is('text') && component.getClasses().includes('dropCaps'))
+        {
+            component.replaceWith(`${component.get('content')}`);
+        }
+        else
+        {
+            var range = rte.selection().getRangeAt(0);
+            
+            var container = range.commonAncestorContainer;
+            
+            if (container.nodeType == 3)
+                container = container.parentNode;
+            
+            if(container.nodeName == "SPAN" && container.classList.contains('dropCaps'))
+            {
+                var parent = container.parentNode;
+                var content = document.createTextNode(container.innerHTML);
+                
+                // insert all our children before ourselves.
+                parent.insertBefore(content, container);
+                
+                parent.removeChild(container);
+            }
+            else
+            {
+                rte.insertHTML(`<span class="dropCaps">${rte.selection()}</span>`);
+            }
+        }
+  }
+});
 
     rte.add('superscript',
     {
@@ -197,11 +234,11 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
     attributes: {title: 'Subscript'},
     result: rte => rte.exec('subscript')
     });
-
-    rte.add('hyperlink',
+    rte.remove('link');
+    rte.add('link',
     {
         icon: '<i class="fa fa-link"></i>',
-        attributes: {title: 'Hyperlink'},
+        attributes: {title: 'Link'},
         result: rte =>
         {
             var component = editor.getSelected();

@@ -1244,6 +1244,35 @@ process.umask = function() { return 0; };
             return rte.insertHTML('<span data-gjs-type=\'span\'>' + rte.selection() + '</span>');
         }
     });
+    rte.add('dropcap', {
+        icon: '',
+        attributes: { title: 'Dropcap' },
+        result: function result(rte) {
+            var component = editor.getSelected();
+
+            if (component.is('text') && component.getClasses().includes('dropCaps')) {
+                component.replaceWith('' + component.get('content'));
+            } else {
+                var range = rte.selection().getRangeAt(0);
+
+                var container = range.commonAncestorContainer;
+
+                if (container.nodeType == 3) container = container.parentNode;
+
+                if (container.nodeName == "SPAN" && container.classList.contains('dropCaps')) {
+                    var parent = container.parentNode;
+                    var content = document.createTextNode(container.innerHTML);
+
+                    // insert all our children before ourselves.
+                    parent.insertBefore(content, container);
+
+                    parent.removeChild(container);
+                } else {
+                    rte.insertHTML('<span class="dropCaps">' + rte.selection() + '</span>');
+                }
+            }
+        }
+    });
 
     rte.add('superscript', {
         icon: '<b>S<sup>s</sup></b>',
@@ -1260,10 +1289,10 @@ process.umask = function() { return 0; };
             return rte.exec('subscript');
         }
     });
-
-    rte.add('hyperlink', {
+    rte.remove('link');
+    rte.add('link', {
         icon: '<i class="fa fa-link"></i>',
-        attributes: { title: 'Hyperlink' },
+        attributes: { title: 'Link' },
         result: function result(rte) {
             var component = editor.getSelected();
 
