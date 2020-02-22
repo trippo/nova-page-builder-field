@@ -126,6 +126,10 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
         content: '<blockquote class="quote">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</blockquote>',
         attributes: {class: 'fa fa-quote-right'}
     });
+    bm.remove('column1');
+    bm.remove('column2');
+    bm.remove('column3');
+    bm.remove('column3-7');
 
     /****************** BUTTONS *************************/
 
@@ -179,58 +183,20 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
 
     const rte = editor.RichTextEditor;
     rte.add('span', {
-        icon: 'Span',
+        icon: 'span',
         result: rte => rte.insertHTML(`<span data-gjs-type='span'>${rte.selection()}</span>`)
     });
-    rte.add('dropcap',
-{
-    icon: '',
-    attributes: {title: 'Dropcap'},
-    result: rte =>
-    {
-        var component = editor.getSelected();
-        
-        if(component.is('text') && component.getClasses().includes('dropCaps'))
-        {
-            component.replaceWith(`${component.get('content')}`);
-        }
-        else
-        {
-            var range = rte.selection().getRangeAt(0);
-            
-            var container = range.commonAncestorContainer;
-            
-            if (container.nodeType == 3)
-                container = container.parentNode;
-            
-            if(container.nodeName == "SPAN" && container.classList.contains('dropCaps'))
-            {
-                var parent = container.parentNode;
-                var content = document.createTextNode(container.innerHTML);
-                
-                // insert all our children before ourselves.
-                parent.insertBefore(content, container);
-                
-                parent.removeChild(container);
-            }
-            else
-            {
-                rte.insertHTML(`<span class="dropCaps">${rte.selection()}</span>`);
-            }
-        }
-  }
-});
 
     rte.add('superscript',
     {
-    icon: '<b>S<sup>s</sup></b>',
+    icon: '<i class="fas fa-superscript"></i>',
     attributes: {title: 'Superscript'},
     result: rte => rte.exec('superscript')
     });
 
     rte.add('subscript',
     {
-    icon: '<b>S<sub>s</sub></b>',
+    icon: '<i class="fas fa-subscript"></i>',
     attributes: {title: 'Subscript'},
     result: rte => rte.exec('subscript')
     });
@@ -276,28 +242,28 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
 
     rte.add('indent',
     {
-    icon: '&#8594;',
+    icon: '<i class="fas fa-indent"></i>;',
     attributes: {title: 'Indent'},
     result: rte => rte.exec('indent')
     });
 
     rte.add('outdent',
     {
-    icon: '&#8592;',
+    icon: '<i class="fas fa-outdent"></i>',
     attributes: {title: 'Outdent'},
     result: rte => rte.exec('outdent')
     });
 
     rte.add('orderedList',
     {
-    icon: '1.',
+    icon: '<i class="fas fa-list-ol"></i>',
     attributes: {title: 'Ordered List'},
     result: rte => rte.exec('insertOrderedList')
     });
 
     rte.add('unorderedList',
     {
-    icon: '&#8226;',
+    icon: '<i class="fas fa-list-ul"></i>',
     attributes: {title: 'Unordered List'},
     result: rte => rte.exec('insertUnorderedList')
     });
