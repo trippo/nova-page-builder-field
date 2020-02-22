@@ -175,6 +175,96 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
     // updateTooltip(deviceBtns);
     updateTooltip(pnm.getPanel('options').get('buttons'));
 
+    /****************** RichTextEditor *************************/
+
+    const rte = editor.RichTextEditor;
+    rte.add('span', {
+        icon: 'Span',
+        result: rte => rte.insertHTML(`<span data-gjs-type='span'>${rte.selection()}</span>`)
+    });
+
+
+    rte.add('superscript',
+    {
+    icon: '<b>S<sup>s</sup></b>',
+    attributes: {title: 'Superscript'},
+    result: rte => rte.exec('superscript')
+    });
+
+    rte.add('subscript',
+    {
+    icon: '<b>S<sub>s</sub></b>',
+    attributes: {title: 'Subscript'},
+    result: rte => rte.exec('subscript')
+    });
+
+    rte.add('hyperlink',
+    {
+        icon: '<i class="fa fa-link"></i>',
+        attributes: {title: 'Hyperlink'},
+        result: rte =>
+        {
+            var component = editor.getSelected();
+            
+            if(component.is('link'))
+            {
+                component.replaceWith(`${component.get('content')}`);
+            }
+            else
+            {
+                var range = rte.selection().getRangeAt(0);
+                
+                var container = range.commonAncestorContainer;
+                if (container.nodeType == 3)
+                    container = container.parentNode;
+                
+                if(container.nodeName === "A")
+                {
+                    var sel = rte.selection();
+                    sel.removeAllRanges();
+                    range = document.createRange();
+                    range.selectNodeContents(container);
+                    sel.addRange(range);
+                    rte.exec('unlink');
+                }
+                else
+                {
+                    var url = window.prompt('Enter the URL to link to:');
+                    if (url)
+                        rte.insertHTML(`<a class="link" href="${url}">${rte.selection()}</a>`);
+                }
+            }
+    }
+    });
+
+    rte.add('indent',
+    {
+    icon: '&#8594;',
+    attributes: {title: 'Indent'},
+    result: rte => rte.exec('indent')
+    });
+
+    rte.add('outdent',
+    {
+    icon: '&#8592;',
+    attributes: {title: 'Outdent'},
+    result: rte => rte.exec('outdent')
+    });
+
+    rte.add('orderedList',
+    {
+    icon: '1.',
+    attributes: {title: 'Ordered List'},
+    result: rte => rte.exec('insertOrderedList')
+    });
+
+    rte.add('unorderedList',
+    {
+    icon: '&#8226;',
+    attributes: {title: 'Unordered List'},
+    result: rte => rte.exec('insertUnorderedList')
+    });
+
 
     /****************** EVENTS *************************/
 

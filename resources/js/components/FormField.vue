@@ -74,12 +74,16 @@
                     custom,
                 ],
                 pluginsOpts: {
-                    pluginBootstrap: {
+                    "gjs-blocks-basic":{
+                        blocks:['text', 'link', 'image', 'video', 'map']
+                    },
+                    'grapesjs-plugin-bootstrap': {
                         blocks: {
-                            container: false
+                            container: false,
+                            alert: false
                         },
                         blockCategories: {
-                            forms: false
+                            forms: false,
                         }
                     }
                 },
