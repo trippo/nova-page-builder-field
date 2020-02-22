@@ -140,7 +140,12 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
         content: `
         <div class="table-responsive">
             <table class="table table-striped 5stable-bordered table-hover">
+                <thead>
+                <tr><th>Title</th><th>Title</th><th>Title</th></tr>
+                </thead>
+                <tbody>
                 <tr><td></td><td></td><td></td></tr>
+                </tbody>
             </table>
         </div>
           `,
