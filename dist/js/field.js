@@ -542,7 +542,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             allowScripts: 1,
             storageManager: { autoload: 0 },
             width: '100%',
-            plugins: [__WEBPACK_IMPORTED_MODULE_2_grapesjs_blocks_bootstrap4___default.a, __WEBPACK_IMPORTED_MODULE_1_grapesjs_blocks_basic___default.a, __WEBPACK_IMPORTED_MODULE_7_grapesjs_plugin_export___default.a, __WEBPACK_IMPORTED_MODULE_3_grapesjs_component_countdown___default.a,
+            plugins: [__WEBPACK_IMPORTED_MODULE_1_grapesjs_blocks_basic___default.a, __WEBPACK_IMPORTED_MODULE_2_grapesjs_blocks_bootstrap4___default.a, __WEBPACK_IMPORTED_MODULE_7_grapesjs_plugin_export___default.a, __WEBPACK_IMPORTED_MODULE_3_grapesjs_component_countdown___default.a,
             //pluginForms,
             __WEBPACK_IMPORTED_MODULE_4_grapesjs_custom_code___default.a, __WEBPACK_IMPORTED_MODULE_5_grapesjs_parser_postcss___default.a, __WEBPACK_IMPORTED_MODULE_6_grapesjs_touch___default.a, __WEBPACK_IMPORTED_MODULE_8__plugins_custom__["a" /* default */]],
             pluginsOpts: {
@@ -1062,8 +1062,6 @@ process.umask = function() { return 0; };
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_grapesjs__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_grapesjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_grapesjs__);
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_grapesjs___default.a.plugins.add('custom', function (editor, opts) {
@@ -1199,81 +1197,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         label: 'Table',
         category: 'Basic',
         attributes: { class: 'fa fa-table' },
-        content: '\n            <table class="table  table-bordered table-resizable">\n                <tr><td></td><td></td><td></td></tr>\n                <tr><td></td><td></td><td></td></tr>\n                <tr><td></td><td></td><td></td></tr>\n            </table>\n          '
-    });
-    var TOOLBAR_CELL = [{
-        attributes: { class: "fa fa-arrow-up" },
-        command: function command(ed) {
-            return ed.runCommand('core:component-exit', { force: 1 });
-        }
-    }, {
-        attributes: { class: "fa fa-arrows" },
-        command: "tlb-move"
-    }, {
-        attributes: { class: "fa fa-flag" },
-        command: "table-insert-row-above"
-    }, {
-        attributes: { class: 'fa fa-clone' },
-        command: 'tlb-clone'
-    }, {
-        attributes: { class: 'fa fa-trash-o' },
-        command: 'tlb-delete'
-    }];
-
-    var getCellToolbar = function getCellToolbar() {
-        return TOOLBAR_CELL;
-    };
-    var components = editor.DomComponents;
-    var text = components.getType('text');
-    components.addType('cell', {
-        model: text.model.extend({
-            defaults: Object.assign({}, text.model.prototype.defaults, {
-                type: 'cell',
-                tagName: 'td',
-                draggable: ['tr']
-
-            })
-        }, {
-            isComponent: function isComponent(el) {
-                var result = void 0;
-                var tag = el.tagName;
-                if (tag == 'TD' || tag == 'TH') {
-                    result = {
-                        type: 'cell',
-                        tagName: tag.toLowerCase()
-                    };
-                }
-                return result;
-            }
-        }),
-        view: text.view
-    });
-    editor.on('component:selected', function (m) {
-        var compType = m.get('type');
-        switch (compType) {
-            case 'cell':
-                m.set('toolbar', getCellToolbar()); // set a toolbars
-        }
-    });
-    editor.Commands.add('table-insert-row-above', function (editor) {
-        var selected = editor.getSelected();
-
-        if (selected.is('cell')) {
-            var rowComponent = selected.parent();
-            var rowIndex = rowComponent.collection.indexOf(rowComponent);
-            var cells = rowComponent.components().length;
-            var rowContainer = rowComponent.parent();
-
-            rowContainer.components().add({
-                type: 'row',
-                components: [].concat(_toConsumableArray(Array(cells).keys())).map(function (i) {
-                    return {
-                        type: 'cell',
-                        content: 'New Cell'
-                    };
-                })
-            }, { at: rowIndex });
-        }
+        content: '\n        <div class="table-responsive">\n            <table class="table table-striped 5stable-bordered table-hover">\n                <tr><td></td><td></td><td></td></tr>\n            </table>\n        </div>\n          '
     });
 
     /****************** BUTTONS *************************/
