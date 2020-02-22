@@ -138,90 +138,14 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
         category: 'Basic',
         attributes: { class: 'fa fa-table' },
         content: `
-            <table class="table  table-bordered table-resizable">
-                <tr><td></td><td></td><td></td></tr>
-                <tr><td></td><td></td><td></td></tr>
+        <div class="table-responsive">
+            <table class="table table-striped 5stable-bordered table-hover">
                 <tr><td></td><td></td><td></td></tr>
             </table>
+        </div>
           `,
     });
-    const TOOLBAR_CELL = [
-        {
-            attributes: { class: "fa fa-arrow-up" },
-            command: ed => ed.runCommand('core:component-exit', { force: 1 })
-        },
-        {
-          attributes: { class: "fa fa-arrows" },
-          command: "tlb-move"
-        },
-        {
-          attributes: { class: "fa fa-flag" },
-          command: "table-insert-row-above"
-        },
-        
-        {
-          attributes: {class: 'fa fa-clone'},
-          command: 'tlb-clone',
-        },
-        {
-          attributes: {class: 'fa fa-trash-o'},
-          command: 'tlb-delete',
-        }
-    ];
-
-    const getCellToolbar = () => TOOLBAR_CELL;
-    const components = editor.DomComponents;
-    const text = components.getType('text');
-    components.addType('cell', {
-          model: text.model.extend({
-            defaults: Object.assign({}, text.model.prototype.defaults, {
-              type: 'cell',
-              tagName: 'td',
-              draggable: ['tr'],
-              
-            }),
-        },
-
-        {
-            isComponent(el) {
-            let result;
-            const tag = el.tagName;
-            if (tag == 'TD' || tag == 'TH') {
-                result = {
-                type: 'cell',
-                tagName: tag.toLowerCase()
-                };
-            }
-            return result;
-            }
-        }),
-        view: text.view,
-    });
-    editor.on('component:selected', m => {
-        const compType = m.get('type');
-        switch (compType) {
-          case 'cell':
-            m.set('toolbar', getCellToolbar()); // set a toolbars
-        }
-    });
-    editor.Commands.add('table-insert-row-above', editor => {
-        const selected = editor.getSelected();
-
-        if (selected.is('cell')) {
-          const rowComponent = selected.parent();
-          const rowIndex = rowComponent.collection.indexOf(rowComponent);
-          const cells = rowComponent.components().length;
-          const rowContainer = rowComponent.parent();
-
-          rowContainer.components().add({
-            type: 'row',
-            components: [...Array(cells).keys()].map(i => ({
-              type: 'cell',
-              content: 'New Cell',
-            }))
-          }, { at: rowIndex });
-        }
-    });
+    
 
     /****************** BUTTONS *************************/
 

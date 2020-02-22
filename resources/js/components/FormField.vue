@@ -63,8 +63,8 @@
                 storageManager: { autoload: 0 },
                 width: '100%',
                 plugins: [
-                    pluginBootstrap,
                     basicBlocks,
+                    pluginBootstrap,
                     pluginExport,
                     pluginCountdown,
                     //pluginForms,
