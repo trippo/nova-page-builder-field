@@ -1202,6 +1202,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         content: '\n            <table class="table  table-bordered table-resizable">\n                <tr><td></td><td></td><td></td></tr>\n                <tr><td></td><td></td><td></td></tr>\n                <tr><td></td><td></td><td></td></tr>\n            </table>\n          '
     });
     var TOOLBAR_CELL = [{
+        attributes: { class: "fa fa-arrow-up" },
+        command: function command(ed) {
+            return ed.runCommand('core:component-exit', { force: 1 });
+        }
+    }, {
         attributes: { class: "fa fa-arrows" },
         command: "tlb-move"
     }, {

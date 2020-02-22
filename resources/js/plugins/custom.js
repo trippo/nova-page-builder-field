@@ -147,6 +147,10 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
     });
     const TOOLBAR_CELL = [
         {
+            attributes: { class: "fa fa-arrow-up" },
+            command: ed => ed.runCommand('core:component-exit', { force: 1 })
+        },
+        {
           attributes: { class: "fa fa-arrows" },
           command: "tlb-move"
         },
@@ -168,7 +172,7 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
     const getCellToolbar = () => TOOLBAR_CELL;
     const components = editor.DomComponents;
     const text = components.getType('text');
-        components.addType('cell', {
+    components.addType('cell', {
           model: text.model.extend({
             defaults: Object.assign({}, text.model.prototype.defaults, {
               type: 'cell',
