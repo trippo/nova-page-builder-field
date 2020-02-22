@@ -128,29 +128,11 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
     });
     bm.remove('container');
     bm.remove('alert');
+    bm.remove('link');
     bm.remove('column1');
     bm.remove('column2');
     bm.remove('column3');
     bm.remove('column3-7');
-    bm.add('table-block', {
-        id: 'table',
-        label: 'Table',
-        category: 'Basic',
-        attributes: { class: 'fa fa-table' },
-        content: `
-        <div class="table-responsive">
-            <table class="table table-striped stable-bordered table-hover">
-                <thead>
-                <tr><th>Title</th><th>Title</th><th>Title</th></tr>
-                </thead>
-                <tbody>
-                <tr><td></td><td></td><td></td></tr>
-                </tbody>
-            </table>
-        </div>
-          `,
-    });
-    
 
     /****************** BUTTONS *************************/
 
