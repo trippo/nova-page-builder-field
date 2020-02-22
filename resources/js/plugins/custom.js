@@ -189,14 +189,14 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
 
     rte.add('superscript',
     {
-    icon: '<i class="fas fa-superscript"></i>',
+    icon: '<i class="fa fa-superscript"></i>',
     attributes: {title: 'Superscript'},
     result: rte => rte.exec('superscript')
     });
 
     rte.add('subscript',
     {
-    icon: '<i class="fas fa-subscript"></i>',
+    icon: '<i class="fa fa-subscript"></i>',
     attributes: {title: 'Subscript'},
     result: rte => rte.exec('subscript')
     });
@@ -242,28 +242,28 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
 
     rte.add('indent',
     {
-    icon: '<i class="fas fa-indent"></i>;',
+    icon: '<i class="fa fa-indent"></i>',
     attributes: {title: 'Indent'},
     result: rte => rte.exec('indent')
     });
 
     rte.add('outdent',
     {
-    icon: '<i class="fas fa-outdent"></i>',
+    icon: '<i class="fa fa-outdent"></i>',
     attributes: {title: 'Outdent'},
     result: rte => rte.exec('outdent')
     });
 
     rte.add('orderedList',
     {
-    icon: '<i class="fas fa-list-ol"></i>',
+    icon: '<i class="fa fa-list-ol"></i>',
     attributes: {title: 'Ordered List'},
     result: rte => rte.exec('insertOrderedList')
     });
 
     rte.add('unorderedList',
     {
-    icon: '<i class="fas fa-list-ul"></i>',
+    icon: '<i class="fa fa-list-ul"></i>',
     attributes: {title: 'Unordered List'},
     result: rte => rte.exec('insertUnorderedList')
     });

@@ -1250,7 +1250,7 @@ process.umask = function() { return 0; };
     });
 
     rte.add('superscript', {
-        icon: '<i class="fas fa-superscript"></i>',
+        icon: '<i class="fa fa-superscript"></i>',
         attributes: { title: 'Superscript' },
         result: function result(rte) {
             return rte.exec('superscript');
@@ -1258,7 +1258,7 @@ process.umask = function() { return 0; };
     });
 
     rte.add('subscript', {
-        icon: '<i class="fas fa-subscript"></i>',
+        icon: '<i class="fa fa-subscript"></i>',
         attributes: { title: 'Subscript' },
         result: function result(rte) {
             return rte.exec('subscript');
@@ -1295,7 +1295,7 @@ process.umask = function() { return 0; };
     });
 
     rte.add('indent', {
-        icon: '<i class="fas fa-indent"></i>;',
+        icon: '<i class="fa fa-indent"></i>',
         attributes: { title: 'Indent' },
         result: function result(rte) {
             return rte.exec('indent');
@@ -1303,7 +1303,7 @@ process.umask = function() { return 0; };
     });
 
     rte.add('outdent', {
-        icon: '<i class="fas fa-outdent"></i>',
+        icon: '<i class="fa fa-outdent"></i>',
         attributes: { title: 'Outdent' },
         result: function result(rte) {
             return rte.exec('outdent');
@@ -1311,7 +1311,7 @@ process.umask = function() { return 0; };
     });
 
     rte.add('orderedList', {
-        icon: '<i class="fas fa-list-ol"></i>',
+        icon: '<i class="fa fa-list-ol"></i>',
         attributes: { title: 'Ordered List' },
         result: function result(rte) {
             return rte.exec('insertOrderedList');
@@ -1319,7 +1319,7 @@ process.umask = function() { return 0; };
     });
 
     rte.add('unorderedList', {
-        icon: '<i class="fas fa-list-ul"></i>',
+        icon: '<i class="fa fa-list-ul"></i>',
         attributes: { title: 'Unordered List' },
         result: function result(rte) {
             return rte.exec('insertUnorderedList');
