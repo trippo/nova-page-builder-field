@@ -79,7 +79,6 @@
                     },
                     'grapesjs-plugin-bootstrap': {
                         blocks: {
-                            container: false,
                             alert: false
                         },
                         blockCategories: {
