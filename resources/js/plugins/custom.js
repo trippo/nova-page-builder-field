@@ -177,6 +177,13 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
 
     var pnm = editor.Panels;
     pnm.addButton('options', [{
+        id: 'edit',
+        className: 'fa fa-edit',
+        command: 'html-edit',
+        attributes: {
+            title: 'Edit'
+        }
+    }, {
         id: 'undo',
         className: 'fa fa-undo icon-undo',
         command: 'undo',
@@ -196,13 +203,6 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
         className: 'fa fa-trash icon-blank',
         command: 'clean-all',
         attributes: {title: 'Empty canvas'}
-    }, {
-        id: 'edit',
-        className: 'fa fa-edit',
-        command: 'html-edit',
-        attributes: {
-            title: 'Edit'
-        }
     }]);
 
     // Add devices buttons
