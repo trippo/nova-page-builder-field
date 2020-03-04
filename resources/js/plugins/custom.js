@@ -38,7 +38,14 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
     codeViewer.set({
         codeName: 'htmlmixed',
         theme: opt.codeViewerTheme || 'hopscotch',
-        readOnly: 0
+        readOnly: 0,
+        autoBeautify: true,
+        autoCloseTags: true,
+        autoCloseBrackets: true,
+        lineWrapping: true,
+        styleActiveLine: true,
+        smartIndent: true,
+        indentWithTabs: true
     });
 
 
@@ -116,6 +123,38 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
         }
     });
 
+    var btnEdit = document.createElement('button');
+    btnEdit.innerHTML = 'Edit';
+    btnEdit.className = pfx + 'btn-prim ' + pfx + 'btn-import';
+    btnEdit.onclick = function() {
+        var code = codeViewer.editor.getValue();
+        editor.DomComponents.getWrapper().set('content', '');
+        editor.setComponents(code.trim());
+        modal.close();
+    };
+
+    cmdm.add('html-edit', {
+        run: function(editor, sender) {
+            sender && sender.set('active', 0);
+            var viewer = codeViewer.editor;
+            modal.setTitle('Edit code');
+            if (!viewer) {
+                var txtarea = document.createElement('textarea');
+                container.appendChild(txtarea);
+                container.appendChild(btnEdit);
+                codeViewer.init(txtarea);
+                viewer = codeViewer.editor;
+            }
+            var InnerHtml = editor.getHtml();
+            var Css = editor.getCss();
+            modal.setContent('');
+            modal.setContent(container);
+            codeViewer.setContent(InnerHtml + "<style>" + Css + '</style>');
+            modal.open();
+            viewer.refresh();
+        }
+    });
+
     /****************** BLOCKS *************************/
 
     var bm = editor.BlockManager;
@@ -157,6 +196,13 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
         className: 'fa fa-trash icon-blank',
         command: 'clean-all',
         attributes: {title: 'Empty canvas'}
+    }, {
+        id: 'edit',
+        className: 'fa fa-edit',
+        command: 'html-edit',
+        attributes: {
+            title: 'Edit'
+        }
     }]);
 
     // Add devices buttons
