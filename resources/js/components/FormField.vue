@@ -88,7 +88,8 @@
                 },
                 canvas: {
                     styles: [
-                        'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'
+                        'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css',
+                        'https://use.fontawesome.com/releases/v5.11.2/css/all.css'
                     ],
                     scripts: [
                         'https://code.jquery.com/jquery-3.4.1.slim.min.js',
