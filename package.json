@@ -15,7 +15,7 @@
         "laravel-nova": "^1.0"
     },
     "dependencies": {
-        "grapesjs": "0.x",
+        "grapesjs": "^0.16.2",
         "grapesjs-blocks-basic": "^0.1.7",
         "grapesjs-blocks-bootstrap4": "github:trippo/grapesjs-blocks-bootstrap4",
         "grapesjs-component-countdown": "^0.1.2",
