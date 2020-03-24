@@ -336,19 +336,25 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
             openSmBtn && openSmBtn.set('active', 1);
         }
     });
-    editor.on('keymap:emit',function(keymapId, shortcutUsed, event){
-        var keycode = (event.keyCode ? event.keyCode : event.which);
-        console.log(keymapId);
-        console.log(shortcutUsed);
-        console.log(keycode);
-        if(keycode == '13'){
-            event.preventDefault();
-            event.stopPropagation();
-            return false;
-        }
-        if(keycode == '47'){
-            event.stopPropagation();
-        }
+    const keymaps = editor.Keymaps;
+    keymaps.add('editor:prevent', '/', editor => {
+    console.log('do stuff');
     });
+    // editor.on('component:selected',function(component){
+    //     console.log(component);
+    //     $
+    //     var keycode = (event.keyCode ? event.keyCode : event.which);
+        
+    //     console.log(shortcutUsed);
+    //     console.log(keycode);
+    //     if(keycode == '13'){
+    //         event.preventDefault();
+    //         event.stopPropagation();
+    //         return false;
+    //     }
+    //     if(keycode == '47'){
+    //         event.stopPropagation();
+    //     }
+    // });
 
 });
