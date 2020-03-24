@@ -541,6 +541,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
         Nova.addShortcut('return', function (e) {
             e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
             return false;
         });
         this.editor = __WEBPACK_IMPORTED_MODULE_0_grapesjs___default.a.init({

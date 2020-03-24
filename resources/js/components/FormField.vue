@@ -62,6 +62,8 @@
             });
             Nova.addShortcut('return', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
                 return false;
             });
             this.editor = grapesjs.init({
