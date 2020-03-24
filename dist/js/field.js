@@ -1380,8 +1380,10 @@ process.umask = function() { return 0; };
             openSmBtn && openSmBtn.set('active', 1);
         }
     });
-    editor.on('keypress keydown', function (event) {
+    editor.on('keymap:emit', function (keymapId, shortcutUsed, event) {
         var keycode = event.keyCode ? event.keyCode : event.which;
+        console.log(keymapId);
+        console.log(shortcutUsed);
         console.log(keycode);
         if (keycode == '13') {
             event.preventDefault();
