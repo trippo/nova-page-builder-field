@@ -337,7 +337,8 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
         }
     });
     
-    $( ".gjs-editor-cont" ).on('keydown', function(e){
+    $( ".gjs-frame" ).on('keydown', function(e){
+        console.log(e);
         e.stopPropagation();
     });
 
