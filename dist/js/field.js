@@ -536,6 +536,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     mounted: function mounted() {
+        Nova.addShortcut('/', function () {
+            console.log('test');
+            return false;
+        });
+        Nova.addShortcut('return', function () {
+            console.log('test');
+            return false;
+        });
         this.editor = __WEBPACK_IMPORTED_MODULE_0_grapesjs___default.a.init({
             container: '#' + this.containerId,
             allowScripts: 1,

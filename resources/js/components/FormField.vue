@@ -57,6 +57,14 @@
         },
 
         mounted() {
+            Nova.addShortcut('/', () => {
+                console.log('test');
+                return false;
+            });
+            Nova.addShortcut('return', () => {
+                console.log('test');
+                return false;
+            });
             this.editor = grapesjs.init({
                 container: '#' + this.containerId,
                 allowScripts: 1,
