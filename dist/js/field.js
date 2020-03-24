@@ -1385,6 +1385,14 @@ process.umask = function() { return 0; };
         e.stopPropagation();
         console.log(e);
     });
+    editor.addEventListener('keydown', function (e) {
+        e.stopPropagation();
+        console.log('aaaa');
+    });
+    editor.on('keydown', function (e) {
+        e.stopPropagation();
+        console.log('bbb');
+    });
 }));
 
 /***/ }),

@@ -341,5 +341,13 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
         e.stopPropagation();
         console.log(e);
     })
+    editor.addEventListener('keydown', function(e){
+        e.stopPropagation();
+        console.log('aaaa');
+    });
+    editor.on('keydown', function(e){
+        e.stopPropagation();
+        console.log('bbb');
+    });
 
 });
