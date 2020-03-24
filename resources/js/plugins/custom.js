@@ -336,18 +336,9 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
             openSmBtn && openSmBtn.set('active', 1);
         }
     });
-
-    document.addEventListener('keydown', function(e){
+    
+    $( ".gjs-editor-cont" ).on('keydown', function(e){
         e.stopPropagation();
-        console.log(e);
-    })
-    editor.addEventListener('keydown', function(e){
-        e.stopPropagation();
-        console.log('aaaa');
-    });
-    editor.on('keydown', function(e){
-        e.stopPropagation();
-        console.log('bbb');
     });
 
 });
