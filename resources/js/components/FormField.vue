@@ -60,7 +60,8 @@
             Nova.addShortcut('/', () => {
                 return false;
             });
-            Nova.addShortcut('return', () => {
+            Nova.addShortcut('return', (e) => {
+                e.preventDefault();
                 return false;
             });
             this.editor = grapesjs.init({
@@ -124,16 +125,6 @@
                         }
                     ],
                 },
-            });
-
-            this.editor.setComponents(this.value);
-            $(document).ready(function() {
-                $(window).keydown(function(event){
-                    if(event.keyCode == 13) {
-                    event.preventDefault();
-                    return false;
-                    }
-                });
             });
         }
     }
