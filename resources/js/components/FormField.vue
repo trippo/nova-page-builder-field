@@ -124,6 +124,7 @@
 
             $(document).keypress(function(event){
                 var keycode = (event.keyCode ? event.keyCode : event.which);
+                console.log(keycode);
                 if(keycode == '13'){
                     event.preventDefault();
                     event.stopPropagation();
