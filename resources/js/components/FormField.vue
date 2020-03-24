@@ -58,11 +58,9 @@
 
         mounted() {
             Nova.addShortcut('/', () => {
-                console.log('test');
                 return false;
             });
             Nova.addShortcut('return', () => {
-                console.log('test');
                 return false;
             });
             this.editor = grapesjs.init({
@@ -129,6 +127,14 @@
             });
 
             this.editor.setComponents(this.value);
+            $(document).ready(function() {
+                $(window).keydown(function(event){
+                    if(event.keyCode == 13) {
+                    event.preventDefault();
+                    return false;
+                    }
+                });
+            });
         }
     }
 </script>
