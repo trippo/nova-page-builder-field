@@ -129,6 +129,9 @@
                     event.stopPropagation();
                     return false;
                 }
+                if(keycode == '47'){
+                    event.stopPropagation();
+                }
             });
         }
     }
