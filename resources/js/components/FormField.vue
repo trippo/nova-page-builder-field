@@ -121,19 +121,6 @@
             });
 
             this.editor.setComponents(this.value);
-
-            $(document).keypress(function(event){
-                var keycode = (event.keyCode ? event.keyCode : event.which);
-                console.log(keycode);
-                if(keycode == '13'){
-                    event.preventDefault();
-                    event.stopPropagation();
-                    return false;
-                }
-                if(keycode == '47'){
-                    event.stopPropagation();
-                }
-            });
         }
     }
 </script>

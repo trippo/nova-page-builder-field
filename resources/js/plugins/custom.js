@@ -336,5 +336,17 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
             openSmBtn && openSmBtn.set('active', 1);
         }
     });
+    editor.on('keypress keydown',function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        console.log(keycode);
+        if(keycode == '13'){
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        }
+        if(keycode == '47'){
+            event.stopPropagation();
+        }
+    });
 
 });

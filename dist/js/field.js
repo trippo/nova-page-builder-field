@@ -583,19 +583,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
 
         this.editor.setComponents(this.value);
-
-        $(document).keypress(function (event) {
-            var keycode = event.keyCode ? event.keyCode : event.which;
-            console.log(keycode);
-            if (keycode == '13') {
-                event.preventDefault();
-                event.stopPropagation();
-                return false;
-            }
-            if (keycode == '47') {
-                event.stopPropagation();
-            }
-        });
     }
 });
 
@@ -1391,6 +1378,18 @@ process.umask = function() { return 0; };
         if ((!openLayersBtn || !openLayersBtn.get('active')) && editor.editor.get('selectedComponent')) {
             var openSmBtn = editor.Panels.getButton('views', 'open-sm');
             openSmBtn && openSmBtn.set('active', 1);
+        }
+    });
+    editor.on('keypress keydown', function (event) {
+        var keycode = event.keyCode ? event.keyCode : event.which;
+        console.log(keycode);
+        if (keycode == '13') {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        }
+        if (keycode == '47') {
+            event.stopPropagation();
         }
     });
 }));
