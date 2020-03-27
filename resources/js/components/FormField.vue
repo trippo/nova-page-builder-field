@@ -61,6 +61,10 @@
             Nova.addShortcut('/', () => {
                 return false;
             });
+            Nova.addShortcut('enter', (e) => {
+                e.stopPropagation();
+                return false;
+            });
             this.editor = grapesjs.init({
                 container: '#' + this.containerId,
                 allowScripts: 1,
@@ -123,6 +127,7 @@
                     ],
                 },
             });
+            this.editor.setComponents(this.value);
         }
     }
 </script>

@@ -540,6 +540,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         Nova.addShortcut('/', function () {
             return false;
         });
+        Nova.addShortcut('enter', function (e) {
+            e.stopPropagation();
+            return false;
+        });
         this.editor = __WEBPACK_IMPORTED_MODULE_0_grapesjs___default.a.init({
             container: '#' + this.containerId,
             allowScripts: 1,
@@ -585,6 +589,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }]
             }
         });
+        this.editor.setComponents(this.value);
     }
 });
 
