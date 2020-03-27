@@ -513,6 +513,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          * Set the initial, internal value for the field.
          */
         setInitialValue: function setInitialValue() {
+            console.log(this.field.value);
+            console.log(this.value);
             this.value = this.field.value || '';
         },
 

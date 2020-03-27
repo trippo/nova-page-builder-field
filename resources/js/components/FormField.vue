@@ -34,6 +34,8 @@
              * Set the initial, internal value for the field.
              */
             setInitialValue() {
+                console.log(this.field.value);
+                console.log(this.value);
                 this.value = this.field.value || '';
             },
 
