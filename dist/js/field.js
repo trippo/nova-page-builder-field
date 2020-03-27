@@ -539,12 +539,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         Nova.addShortcut('/', function () {
             return false;
         });
-        Nova.addShortcut('return', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            return false;
-        });
         this.editor = __WEBPACK_IMPORTED_MODULE_0_grapesjs___default.a.init({
             container: '#' + this.containerId,
             allowScripts: 1,
@@ -1386,11 +1380,6 @@ process.umask = function() { return 0; };
             var openSmBtn = editor.Panels.getButton('views', 'open-sm');
             openSmBtn && openSmBtn.set('active', 1);
         }
-    });
-
-    $(".gjs-frame").on('keydown', function (e) {
-        console.log(e);
-        e.stopPropagation();
     });
 }));
 

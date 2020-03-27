@@ -336,10 +336,5 @@ export default grapesjs.plugins.add('custom', function (editor, opts) {
             openSmBtn && openSmBtn.set('active', 1);
         }
     });
-    
-    $( ".gjs-frame" ).on('keydown', function(e){
-        console.log(e);
-        e.stopPropagation();
-    });
 
 });
