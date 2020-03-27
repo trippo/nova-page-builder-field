@@ -513,9 +513,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
          * Set the initial, internal value for the field.
          */
         setInitialValue: function setInitialValue() {
-            console.log(this.field.value);
-            console.log(this.value);
             this.value = this.field.value || '';
+            console.log(this.value);
         },
 
 
@@ -541,68 +540,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         Nova.addShortcut('/', function () {
             return false;
         });
-        // this.editor = grapesjs.init({
-        //     container: '#' + this.containerId,
-        //     allowScripts: 1,
-        //     storageManager: { autoload: 0 },
-        //     width: '100%',
-        //     plugins: [
-        //         pluginBootstrap,
-        //         basicBlocks,
-        //         pluginExport,
-        //         pluginCountdown,
-        //         //pluginForms,
-        //         pluginCustomCode,
-        //         pluginParserPostcss,
-        //         pluginTouch,
-        //         custom,
-        //     ],
-        //     pluginsOpts: {
-        //         "gjs-blocks-basic":{
-        //             blocks:['text', 'link', 'image', 'video', 'map']
-        //         },
-        //         'grapesjs-plugin-bootstrap': {
-        //             blocks: {
-        //                 alert: false
-        //             },
-        //             blockCategories: {
-        //                 forms: false,
-        //             }
-        //         }
-        //     },
-        //     canvas: {
-        //         styles: [
-        //             'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css',
-        //             'https://use.fontawesome.com/releases/v5.11.2/css/all.css'
-        //         ],
-        //         scripts: [
-        //             'https://code.jquery.com/jquery-3.4.1.slim.min.js',
-        //             'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js',
-        //             'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'
-        //         ],
-        //     },
-        //     styleManager : {
-        //         sectors: [
-        //             {
-        //             //     name: 'General',
-        //             //     open: false,
-        //             //     buildProps: ['float', 'display', 'position', 'top', 'right', 'left', 'bottom']
-        //             // },{
-        //             //     name: 'Dimension',
-        //             //     open: false,
-        //             //     buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding'],
-        //             // },{
-        //                 name: 'Typography',
-        //                 open: false,
-        //                 buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-shadow'],
-        //             },{
-        //                 name: 'Decorations',
-        //                 open: false,
-        //                 buildProps: ['border-radius-c', 'background-color', 'border-radius', 'border', 'box-shadow', 'background'],
-        //             }
-        //         ],
-        //     },
-        // });
+        this.editor = __WEBPACK_IMPORTED_MODULE_0_grapesjs___default.a.init({
+            container: '#' + this.containerId,
+            allowScripts: 1,
+            storageManager: { autoload: 0 },
+            width: '100%',
+            plugins: [__WEBPACK_IMPORTED_MODULE_2_grapesjs_blocks_bootstrap4___default.a, __WEBPACK_IMPORTED_MODULE_1_grapesjs_blocks_basic___default.a, __WEBPACK_IMPORTED_MODULE_7_grapesjs_plugin_export___default.a, __WEBPACK_IMPORTED_MODULE_3_grapesjs_component_countdown___default.a,
+            //pluginForms,
+            __WEBPACK_IMPORTED_MODULE_4_grapesjs_custom_code___default.a, __WEBPACK_IMPORTED_MODULE_5_grapesjs_parser_postcss___default.a, __WEBPACK_IMPORTED_MODULE_6_grapesjs_touch___default.a, __WEBPACK_IMPORTED_MODULE_8__plugins_custom__["a" /* default */]],
+            pluginsOpts: {
+                "gjs-blocks-basic": {
+                    blocks: ['text', 'link', 'image', 'video', 'map']
+                },
+                'grapesjs-plugin-bootstrap': {
+                    blocks: {
+                        alert: false
+                    },
+                    blockCategories: {
+                        forms: false
+                    }
+                }
+            },
+            canvas: {
+                styles: ['https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', 'https://use.fontawesome.com/releases/v5.11.2/css/all.css'],
+                scripts: ['https://code.jquery.com/jquery-3.4.1.slim.min.js', 'https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js']
+            },
+            styleManager: {
+                sectors: [{
+                    //     name: 'General',
+                    //     open: false,
+                    //     buildProps: ['float', 'display', 'position', 'top', 'right', 'left', 'bottom']
+                    // },{
+                    //     name: 'Dimension',
+                    //     open: false,
+                    //     buildProps: ['width', 'height', 'max-width', 'min-height', 'margin', 'padding'],
+                    // },{
+                    name: 'Typography',
+                    open: false,
+                    buildProps: ['font-family', 'font-size', 'font-weight', 'letter-spacing', 'color', 'line-height', 'text-shadow']
+                }, {
+                    name: 'Decorations',
+                    open: false,
+                    buildProps: ['border-radius-c', 'background-color', 'border-radius', 'border', 'box-shadow', 'background']
+                }]
+            }
+        });
     }
 });
 
@@ -1073,7 +1055,7 @@ process.umask = function() { return 0; };
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_grapesjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_grapesjs__);
 
 
-/* unused harmony default export */ var _unused_webpack_default_export = (__WEBPACK_IMPORTED_MODULE_0_grapesjs___default.a.plugins.add('custom', function (editor, opts) {
+/* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_grapesjs___default.a.plugins.add('custom', function (editor, opts) {
 
     var opt = opts || {};
     var config = editor.getConfig();
