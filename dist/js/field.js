@@ -604,7 +604,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/*! grapesjs-blocks-bootstrap4 - 0.1.30 */
+/*! grapesjs-blocks-bootstrap4 - 0.1.31 */
 !function(e,t){ true?module.exports=t(__webpack_require__(0)):"function"==typeof define&&define.amd?define(["grapesjs"],t):"object"==typeof exports?exports["grapesjs-blocks-bootstrap4"]=t(require("grapesjs")):e["grapesjs-blocks-bootstrap4"]=t(e.grapesjs)}(window,function(n){return o={},r.m=a=[function(e,t){e.exports=function(e){return null==e?"":""+e}},function(e,t,n){"use strict";
 /*
 * Underscore.string
@@ -2716,7 +2716,7 @@ var propTypes = {
 
   resourceId: { type: [Number, String] },
 
-  resourceName: { type: String, required: true },
+  resourceName: { type: String },
 
   field: {
     type: Object,
@@ -2725,20 +2725,17 @@ var propTypes = {
 
   viaResource: {
     type: String,
-    required: true,
-    default: ''
+    required: false
   },
 
   viaResourceId: {
     type: [String, Number],
-    required: true,
-    default: ''
+    required: false
   },
 
   viaRelationship: {
     type: String,
-    required: true,
-    default: ''
+    required: false
   }
 };
 
